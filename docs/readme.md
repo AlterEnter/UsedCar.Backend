@@ -1,31 +1,38 @@
 中古車修理販売のApp
 
+
 - 会員管理
-  - 会員情報登録
-    - 個人情報登録
-      - 電話番号
-      - 名前
-      - 住所
-      - 性別
-      - 生年月日
-    - ログイン情報登録
-      - メールアドレス
-      - パスワード
-    - App利用情報登録
-      - 会員ID
-      - 会員表示名
+ - User Domain Model
+      - 会員ID UserId
+      - 2電話番号 Phonenumber
+      - 名前 Name
+      - 4住所 Address
+        - 郵便番号 Zip
+        - 都道府県 State
+        - 市区町村 City
+        - 住所1 Street1
+        - 住所2 Street2
+      - 1生年月日 Date of birth
+      - 3メールアドレス Email
+      - 会員表示名 DisplayName
+
+////////////////私は分割線です。整理はここまで////////////////
+
 
   - 会員情報取得
-    - 個人情報取得
-      - 電話番号
-      - 名前
-      - 住所
-      - 性別
-    - ログイン情報取得
-      - メールアドレス
-    - App利用情報取得
-      - 会員ID
-      - 会員表示名
+      - 電話番号 Phonenumber
+      - 名前 Name
+      - 住所 Address
+        - 郵便番号 Zip
+        - 都道府県 State
+        - 市区町村 City
+        - 住所1 Street1
+        - 住所2 Street2
+      - 生年月日 Date of birth
+      - メールアドレス Email
+      - 会員ID UserId
+      - 会員表示名 DisplayName
+
 
   - 会員情報変更
     - 個人情報変更
