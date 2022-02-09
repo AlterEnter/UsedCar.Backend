@@ -1,6 +1,21 @@
 ﻿namespace UsedCar.Backend.Domains.Users.ValueObjects
 {
-    public class Street2
+    /// <summary>
+    /// 詳細住所２
+    /// </summary>
+    public record Street2
     {
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="street2"></param>
+        public Street2(string? street2)
+        {
+            Vaule = street2;
+        }
+        /// <summary>
+        /// 詳細住所2の値
+        /// </summary>
+        public string? Vaule { get; }
     }
 }

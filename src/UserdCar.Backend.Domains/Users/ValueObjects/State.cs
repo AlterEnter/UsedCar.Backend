@@ -1,6 +1,26 @@
 ﻿namespace UsedCar.Backend.Domains.Users.ValueObjects
 {
-    public class State
+    /// <summary>
+    /// 都道府県
+    /// </summary>
+    public record State
     {
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="state"></param>
+        /// <exception cref="ArgumentException"></exception>
+        public State(string state)
+        {
+            if (!string.IsNullOrEmpty(state))
+            {
+                throw new ArgumentException();
+            }
+            Vaule = state;
+        }
+        /// <summary>
+        /// stateの値
+        /// </summary>
+        public string Vaule { get; }
     }
 }
