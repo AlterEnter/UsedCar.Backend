@@ -3,7 +3,6 @@
     /// <summary>
     /// 電話番号
     /// </summary>
-    /// <param name="Value"></param>
     public record PhoneNumber
     {
         /// <summary>
@@ -19,7 +18,7 @@
         {
             if (mobilePhoneNumber.Length > _maxNumber)
             {
-                throw new ArgumentOutOfRangeException("out of range");
+                throw new ArgumentOutOfRangeException(nameof(mobilePhoneNumber), "mobilePhoneNumber is out of range.");
             }
 
             Value = mobilePhoneNumber;

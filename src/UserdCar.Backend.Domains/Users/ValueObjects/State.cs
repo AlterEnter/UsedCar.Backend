@@ -9,18 +9,18 @@
         /// コンストラクタ
         /// </summary>
         /// <param name="state"></param>
-        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentNullException"></exception>
         public State(string state)
         {
-            if (!string.IsNullOrEmpty(state))
+            if (string.IsNullOrEmpty(state))
             {
-                throw new ArgumentException();
+                throw new ArgumentNullException(nameof(state), "state can not be null or empty.");
             }
-            Vaule = state;
+            Value = state;
         }
         /// <summary>
         /// stateの値
         /// </summary>
-        public string Vaule { get; }
+        public string Value { get; }
     }
 }

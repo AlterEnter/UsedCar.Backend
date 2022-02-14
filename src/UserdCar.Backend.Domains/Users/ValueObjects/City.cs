@@ -12,15 +12,15 @@
         /// <exception cref="ArgumentException"></exception>
         public City(string city)
         {
-            if (!string.IsNullOrEmpty(city))
+            if (string.IsNullOrEmpty(city))
             {
-                throw new ArgumentException();
+                throw new ArgumentNullException(nameof(city), "city can not be null or empty.");
             }
-            Vaule = city;
+            Value = city;
         }
         /// <summary>
         /// Cityの値
         /// </summary>
-        public string Vaule { get; }
+        public string Value { get; }
     }
 }

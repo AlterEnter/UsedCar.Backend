@@ -16,15 +16,15 @@
         /// <param name="displayName"></param>
         public DisplayName(string displayName)
         {
-            if (!string.IsNullOrEmpty(displayName))
+            if (string.IsNullOrEmpty(displayName))
             {
-                throw new ArgumentException("can not be null or empty");
+                throw new ArgumentNullException(nameof(displayName), "displayName can not be null or empty.");
             }
 
             if (displayName.Length > s_maxCharactersCount)
             {
                 throw new ArgumentOutOfRangeException(nameof(displayName),
-                    "The number of characters has exceeded upper limit.");
+                    "The number of displayName's characters has exceeded upper limit.");
             }
 
             Value = displayName;

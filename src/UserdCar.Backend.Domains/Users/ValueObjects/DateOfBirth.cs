@@ -8,7 +8,7 @@
         /// <summary>
         /// 誕生日の最古日
         /// </summary>
-        private static readonly DateTime MinDate = new DateTime(1910,01,01);
+        private static readonly DateTime MinDate = new(1910,01,01);
         /// <summary>
         /// 現在の日付
         /// </summary>
@@ -18,12 +18,12 @@
         /// コンストラクタ
         /// </summary>
         /// <param name="dateOfBirth"></param>
-        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public DateOfBirth(DateTime dateOfBirth)
         {
             if (dateOfBirth > MaxDate || dateOfBirth < MinDate)
             {
-                throw new ArgumentException("Out of range");
+                throw new ArgumentOutOfRangeException(nameof(dateOfBirth), "dateOfBirth is out of range.");
             }
 
             Value = dateOfBirth.Date;

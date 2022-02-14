@@ -9,12 +9,12 @@
         /// コンストラクタ
         /// </summary>
         /// <param name="street1"></param>
-        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentNullException"></exception>
         public Street1(string street1)
         {
-            if (!string.IsNullOrEmpty(street1))
+            if (string.IsNullOrEmpty(street1))
             {
-                throw new ArgumentException();
+                throw new ArgumentNullException(nameof(street1), "street1 can not be null or empty.");
             }
             Vaule = street1;
         }

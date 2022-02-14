@@ -6,7 +6,7 @@
     public record Name
     {
         /// <summary>
-        /// 電話番号の最長値
+        /// 名前最大length
         /// </summary>
         private static readonly int _maxNumber = 15;
         /// <summary>
@@ -17,9 +17,21 @@
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public Name(string firstName, string lastName)
         {
-            if (firstName.Length > _maxNumber || LastName.Length > _maxNumber)
+            if (string.IsNullOrEmpty(firstName))
             {
-                throw new ArgumentOutOfRangeException("out of range");
+                throw new ArgumentNullException(nameof(firstName), "firstName can not be null or empty.");
+            }
+            if (string.IsNullOrEmpty(lastName))
+            {
+                throw new ArgumentNullException(nameof(lastName), "lastName can not be null or empty.");
+            }
+            if (firstName.Length > _maxNumber)
+            {
+                throw new ArgumentOutOfRangeException(nameof(firstName), "firstName is out of range.");
+            }
+            if (lastName.Length > _maxNumber)
+            {
+                throw new ArgumentOutOfRangeException(nameof(lastName), "lastName is out of range.");
             }
             FirstName = firstName;
             LastName = lastName;

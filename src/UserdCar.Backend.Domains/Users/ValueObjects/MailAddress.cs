@@ -17,14 +17,18 @@ namespace UsedCar.Backend.Domains.Users.ValueObjects
         /// </summary>
         /// <param name="mailAddress"></param>
         /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         public MailAddress(string mailAddress)
         {
-            if (
-                !string.IsNullOrEmpty(mailAddress)
-                && !Regex.IsMatch(mailAddress, @"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250))
+            if (string.IsNullOrEmpty(mailAddress))
+            {
+                throw new ArgumentNullException(nameof(mailAddress),"MailAddress Invalid format.");
+            }
+
+            if (!Regex.IsMatch(mailAddress, @"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250))
             )
             {
-                throw new ArgumentException("Invalid format.");
+                throw new ArgumentException("MailAddress Invalid format.");
             }
             if (mailAddress.Length > s_maxCharactersCount)
             {

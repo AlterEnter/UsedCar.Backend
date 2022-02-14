@@ -6,24 +6,18 @@
     public record UserId
     {
         /// <summary>
-        /// アプリ内ユーザーの識別子の値
-        /// </summary>
-        private readonly Guid _value;
-
-        /// <summary>
         /// コンストラクタ
         /// </summary>
         /// <param name="value"></param>
-        [Obsolete("", false)]
         public UserId(Guid value)
         {
-            _value = value;
+            Value = value;
         }
 
         /// <summary>
         /// アプリ内ユーザーの識別子の値
         /// </summary>
-        public Guid Value => _value;
+        public Guid Value { get;}
 
         /// <summary>
         /// UserIdを作成する
@@ -31,9 +25,7 @@
         /// <returns>UserIdオブジェクト</returns>
         public static UserId Create()
         {
-#pragma warning disable CS0618 // 型またはメンバーが旧型式です
             return new UserId(Guid.NewGuid());
-#pragma warning restore CS0618 // 型またはメンバーが旧型式です
         }
     }
 }

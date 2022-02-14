@@ -9,18 +9,18 @@
         /// コンストラクタ
         /// </summary>
         /// <param name="zip"></param>
-        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentNullException"></exception>
         public Zip(string zip)
         {
-            if (!string.IsNullOrEmpty(zip))
+            if (string.IsNullOrEmpty(zip))
             {
-                throw new ArgumentException();
+                throw new ArgumentNullException(nameof(zip), "zip can not be null or empty.");
             }
-            Vaule = zip;
+            Value = zip;
         }
         /// <summary>
         /// 郵便番号の値
         /// </summary>
-        public string Vaule { get; }
+        public string Value { get; }
     }
 }
