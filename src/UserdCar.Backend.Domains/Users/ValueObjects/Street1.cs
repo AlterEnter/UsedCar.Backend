@@ -16,11 +16,11 @@
             {
                 throw new ArgumentNullException(nameof(street1), "street1 can not be null or empty.");
             }
-            Vaule = street1;
+            Value = street1;
         }
         /// <summary>
         /// street1の値
         /// </summary>
-        public string Vaule { get; }
+        public string Value { get; }
     }
 }

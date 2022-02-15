@@ -13,9 +13,15 @@
         /// コンストラクタ
         /// </summary>
         /// <param name="mobilePhoneNumber"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public PhoneNumber(string mobilePhoneNumber)
         {
+            if (string.IsNullOrEmpty(mobilePhoneNumber))
+            {
+                throw new ArgumentNullException(nameof(mobilePhoneNumber), "mobilePhoneNumber can not be null.");
+            }
+
             if (mobilePhoneNumber.Length > _maxNumber)
             {
                 throw new ArgumentOutOfRangeException(nameof(mobilePhoneNumber), "mobilePhoneNumber is out of range.");
