@@ -4,7 +4,7 @@ using Xunit;
 
 namespace UsedCar.Backend.Domains.ValueObjects
 {
-    public class AddressTest
+    public class UserTest
     {
         [Fact(DisplayName = "正常に値を取得できるこ")]
         public void Address01()
