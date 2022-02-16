@@ -7,6 +7,7 @@ using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using UsedCar.Backend.Presentations.Functions.Core.Authorizations;
+using UsedCar.Backend.UseCases.Exceptions;
 using UsedCar.Backend.UseCases.Users;
 using UsedCar.Backend.UseCases.Users.Models;
 
@@ -55,7 +56,7 @@ namespace UsedCar.Backend.Presentations.Functions.Users
                 PhoneNumber = new TokenResolver(claimsPrincipal).GetPhoneNumber(),
                 State = "例；広島県",
                 Street1 = "例：国泰寺町",
-                Street2 = "１丁目6-34 市役所",
+                Street2 = "例：1丁目6-34 市役所",
                 Zip = "例：730-8586"
             };
             try
@@ -63,7 +64,7 @@ namespace UsedCar.Backend.Presentations.Functions.Users
                 await _userCreateUseCase.ExecuteAsync(userCreateRequest);
                 return response;
             }
-            catch (Exception)
+            catch (DuplicatedUserException)
             {
                 response.StatusCode = HttpStatusCode.BadRequest;
                 return response;

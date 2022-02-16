@@ -1,6 +1,7 @@
 ﻿using UsedCar.Backend.Domains.Users;
 using UsedCar.Backend.Domains.Users.AggregateRoots;
 using UsedCar.Backend.Domains.Users.ValueObjects;
+using UsedCar.Backend.UseCases.Exceptions;
 using UsedCar.Backend.UseCases.Users.Models;
 
 namespace UsedCar.Backend.UseCases.Users
@@ -20,7 +21,7 @@ namespace UsedCar.Backend.UseCases.Users
 
             if (duplicatedUser is not null)
             {
-                throw new ArgumentException();
+                throw new DuplicatedUserException();
             }
 
             User user = new
