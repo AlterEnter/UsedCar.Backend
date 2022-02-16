@@ -1,9 +1,8 @@
 ﻿using System;
-using UsedCar.Backend.Domains.Users.AggregateRoots;
 using UsedCar.Backend.Domains.Users.ValueObjects;
 using Xunit;
 
-namespace UsedCar.Backend.Domains.AggregateRoots
+namespace UsedCar.Backend.Domains.Users.AggregateRoots
 {
     public class UserTest
     {

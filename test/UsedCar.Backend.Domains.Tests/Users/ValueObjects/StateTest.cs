@@ -1,8 +1,7 @@
 ﻿using System;
-using UsedCar.Backend.Domains.Users.ValueObjects;
 using Xunit;
 
-namespace UsedCar.Backend.Domains.ValueObjects
+namespace UsedCar.Backend.Domains.Users.ValueObjects
 {
     public class StateTest
     {
