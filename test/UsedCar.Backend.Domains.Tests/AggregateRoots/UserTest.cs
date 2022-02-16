@@ -14,6 +14,9 @@ namespace UsedCar.Backend.Domains.AggregateRoots
             var expectedUserId = Guid.NewGuid();
             UserId userId = new(expectedUserId);
 
+            var expectedIDassId = Guid.NewGuid().ToString();
+            IDassId iDassId = new(expectedIDassId);
+
             var expectedFirstName = "fizz";
             var expectedLastName = "buzz";
             Name name = new(expectedFirstName, expectedLastName);
@@ -55,6 +58,7 @@ namespace UsedCar.Backend.Domains.AggregateRoots
             // Act
             User user = new(
                 userId,
+                iDassId,
                 name,
                 displayName,
                 dateOfBirth,
@@ -65,6 +69,7 @@ namespace UsedCar.Backend.Domains.AggregateRoots
 
             // Assert
             Assert.Equal(expectedUserId, user.UserId.Value);
+            Assert.Equal(expectedIDassId, user.IDassId.Value);
             Assert.Equal(expectedFirstName, user.Name.FirstName);
             Assert.Equal(expectedLastName, user.Name.LastName);
             Assert.Equal(expectedDisplayName, user.DisplayName.Value);
