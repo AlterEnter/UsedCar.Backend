@@ -16,6 +16,13 @@ namespace UsedCar.Backend.UseCases.Users
 
         public async Task ExecuteAsync(UserCreateRequest userCreateRequest)
         {
+            User? duplicatedUser = await _userRepository.FindAsync(new IDassId(userCreateRequest.IDassId));
+
+            if (duplicatedUser is not null)
+            {
+                throw new ArgumentException();
+            }
+
             User user = new
             (
                 UserId.Create(), 
