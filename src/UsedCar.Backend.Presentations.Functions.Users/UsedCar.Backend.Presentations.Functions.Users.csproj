@@ -11,6 +11,7 @@
     <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Http" Version="3.0.12" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\UsedCar.Backend.Presentations.Functions.Core\UsedCar.Backend.Presentations.Functions.Core.csproj" />
     <ProjectReference Include="..\UsedCar.Backend.UseCases\UsedCar.Backend.UseCases.csproj" />
   </ItemGroup>
   <ItemGroup>

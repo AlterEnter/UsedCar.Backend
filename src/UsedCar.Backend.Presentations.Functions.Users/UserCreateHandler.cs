@@ -1,12 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Threading.Tasks;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.Extensions.Logging;
+using System;
+using System.Net;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using UsedCar.Backend.Presentations.Functions.Core.Authorizations;
 using UsedCar.Backend.UseCases.Users;
 using UsedCar.Backend.UseCases.Users.Models;
 
@@ -24,18 +24,33 @@ namespace UsedCar.Backend.Presentations.Functions.Users
 
 
         [FunctionName($"{nameof(Users)}.{nameof(UserCreateHandler)}")]
-        public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "users")] HttpRequestData req)
+        public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "users")] HttpRequestData req, FunctionContext context)
         {
             HttpResponseData response = req.CreateResponse(HttpStatusCode.Created);
+            ClaimsPrincipal? claimsPrincipal = new ClaimsPrincipalResolver(context).GetClaimsPrincipal();
 
-            UserCreateRequest userCreateRequest = new UserCreateRequest()
+            if (claimsPrincipal == null)
+            {
+                response.StatusCode = HttpStatusCode.Unauthorized;
+                return response;
+            }
+            try
+            {
+                string iDassId = new TokenResolver(claimsPrincipal).GetId();
+            }
+            catch (InvalidOperationException)
+            {
+                response.StatusCode = HttpStatusCode.BadRequest;
+                return response;
+            }
+            UserCreateRequest userCreateRequest = new()
             {
                 Address = "hoge",
                 City = "hoge",
                 DateOfBirth = DateTime.Now,
-                DisplayName = "hoge",
-                IDassId = Guid.NewGuid().ToString(),
-                MailAddress = "test@example.com",
+                DisplayName = new TokenResolver(claimsPrincipal).GetDisplayName(),
+                IDassId = new TokenResolver(claimsPrincipal).GetId(),
+                MailAddress = new TokenResolver(claimsPrincipal).GetMailAddress(),
                 FirstName = "Red",
                 LastName = "Blue",
                 PhoneNumber = "09099999999",
@@ -45,8 +60,17 @@ namespace UsedCar.Backend.Presentations.Functions.Users
                 UserId = Guid.NewGuid(),
                 Zip = "hoge"
             };
-            await _userCreateUseCase.ExecuteAsync(userCreateRequest);
-            return response;
+            try
+            {
+                await _userCreateUseCase.ExecuteAsync(userCreateRequest);
+                return response;
+            }
+            catch (NotImplementedException)
+            {
+                response.StatusCode = HttpStatusCode.BadRequest;
+                return response;
+            }
+
         }
     }
 }
