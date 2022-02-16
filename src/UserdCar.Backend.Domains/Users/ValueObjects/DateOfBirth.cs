@@ -10,9 +10,9 @@
         /// </summary>
         private static readonly DateTime MinDate = new(1910,01,01);
         /// <summary>
-        /// 現在の日付
+        /// 18歳確認
         /// </summary>
-        private static readonly DateTime MaxDate = DateTime.Today;
+        private static readonly DateTime MaxDate = DateTime.Today.AddYears(-18);
 
         /// <summary>
         /// コンストラクタ

@@ -1,4 +1,4 @@
-using Microsoft.Azure.Functions.Worker;
+﻿using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
@@ -45,32 +45,29 @@ namespace UsedCar.Backend.Presentations.Functions.Users
             }
             UserCreateRequest userCreateRequest = new()
             {
-                Address = "hoge",
-                City = "hoge",
-                DateOfBirth = DateTime.Now,
+                City = "例：広島市",
+                DateOfBirth = DateTime.Parse(new TokenResolver(claimsPrincipal).GetDateOfBirth()),
                 DisplayName = new TokenResolver(claimsPrincipal).GetDisplayName(),
                 IDassId = new TokenResolver(claimsPrincipal).GetId(),
                 MailAddress = new TokenResolver(claimsPrincipal).GetMailAddress(),
-                FirstName = "Red",
-                LastName = "Blue",
-                PhoneNumber = "09099999999",
-                State = "hoge",
-                Street1 = "hoge",
-                Street2 = "hoge",
-                UserId = Guid.NewGuid(),
-                Zip = "hoge"
+                FirstName = "例：太郎",
+                LastName = "例：中古",
+                PhoneNumber = new TokenResolver(claimsPrincipal).GetPhoneNumber(),
+                State = "例；広島県",
+                Street1 = "例：国泰寺町",
+                Street2 = "１丁目6-34 市役所",
+                Zip = "例：730-8586"
             };
             try
             {
                 await _userCreateUseCase.ExecuteAsync(userCreateRequest);
                 return response;
             }
-            catch (NotImplementedException)
+            catch (Exception)
             {
                 response.StatusCode = HttpStatusCode.BadRequest;
                 return response;
             }
-
         }
     }
 }
