@@ -1,9 +1,67 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\test\\UsedCar.Backend.Domains.Tests\\UsedCar.Backend.Domains.Tests.csproj": {}
+    "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\src\\UsedCar.Backend.UseCases\\UsedCar.Backend.UseCases.csproj": {}
   },
   "projects": {
+    "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\src\\UsedCar.Backend.UseCases\\UsedCar.Backend.UseCases.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\src\\UsedCar.Backend.UseCases\\UsedCar.Backend.UseCases.csproj",
+        "projectName": "UsedCar.Backend.UseCases",
+        "projectPath": "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\src\\UsedCar.Backend.UseCases\\UsedCar.Backend.UseCases.csproj",
+        "packagesPath": "C:\\Users\\m171172\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\src\\UsedCar.Backend.UseCases\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\m171172\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\src\\UserdCar.Backend.Domains\\UsedCar.Backend.Domains.csproj": {
+                "projectPath": "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\src\\UserdCar.Backend.Domains\\UsedCar.Backend.Domains.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\src\\UserdCar.Backend.Domains\\UsedCar.Backend.Domains.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -39,90 +97,6 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\test\\UsedCar.Backend.Domains.Tests\\UsedCar.Backend.Domains.Tests.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\test\\UsedCar.Backend.Domains.Tests\\UsedCar.Backend.Domains.Tests.csproj",
-        "projectName": "UsedCar.Backend.Domains.Tests",
-        "projectPath": "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\test\\UsedCar.Backend.Domains.Tests\\UsedCar.Backend.Domains.Tests.csproj",
-        "packagesPath": "C:\\Users\\m171172\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\test\\UsedCar.Backend.Domains.Tests\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\m171172\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {
-              "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\src\\UserdCar.Backend.Domains\\UsedCar.Backend.Domains.csproj": {
-                "projectPath": "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\src\\UserdCar.Backend.Domains\\UsedCar.Backend.Domains.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "dependencies": {
-            "Microsoft.NET.Test.Sdk": {
-              "target": "Package",
-              "version": "[17.2.0-preview-20220131-20, )"
-            },
-            "coverlet.collector": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.1.2, )"
-            },
-            "xunit": {
-              "target": "Package",
-              "version": "[2.4.2-pre.12, )"
-            },
-            "xunit.extensibility.core": {
-              "target": "Package",
-              "version": "[2.4.2-pre.12, )"
-            },
-            "xunit.runner.visualstudio": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.4.3, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
