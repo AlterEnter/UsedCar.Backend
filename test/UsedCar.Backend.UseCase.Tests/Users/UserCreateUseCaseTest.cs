@@ -16,72 +16,46 @@ namespace UsedCar.Backend.UseCase.Users
         [Fact(DisplayName = "ユーザーの登録が正常に完了すること")]
         public async Task ExecuteAsync01()
         {
-            var userRepository = new Mock<IUserRepository>();
-            userRepository.Setup(_ => _.CreateAsync(It.IsAny<User>())).Verifiable();
+            var idaasRepository = new Mock<IIdaasRepository>();
+            idaasRepository.Setup(_ => _.CreateAsync(It.IsAny<IdaasInfo>())).Verifiable();
 
-            UserCreateRequest request = new()
+            UserCreateRequest userCreateRequest = new()
             {
-                City = "例：広島市",
-                DateOfBirth = DateTime.Now.Date.AddYears(-25),
-                DisplayName = "Red",
-                IDassId = Guid.NewGuid().ToString(),
-                MailAddress = "test@example.com",
-                FirstName = "例：太郎",
-                LastName = "例：中古",
-                PhoneNumber = "09099999999",
-                State = "例；広島県",
-                Street1 = "例：国泰寺町",
-                Street2 = "例：1丁目6-34 市役所",
-                Zip = "例：730-8586"
+                IdaasId = Guid.NewGuid().ToString(),
+                DisplayName = "test",
+                MailAddress = "test@sample.com"
             };
-            UserCreateUseCase sut = new(userRepository.Object);
-            await sut.ExecuteAsync(request);
 
-            userRepository.Verify(_ => _.CreateAsync(It.IsAny<User>()), Times.Once());
+            UserCreateUseCase sut = new(idaasRepository.Object);
+
+            await sut.ExecuteAsync(userCreateRequest);
+
+            idaasRepository.Verify(_ => _.CreateAsync(It.IsAny<IdaasInfo>()), Times.Once());
         }
 
         [Fact(DisplayName = "ユーザーがすでに登録されており、DuplicatedUserExceptionになること")]
         public async Task ExecuteAsync02()
         {
-            var userRepository = new Mock<IUserRepository>();
+            var idaasRepository = new Mock<IIdaasRepository>();
 
-            UserCreateRequest request = new()
+            UserCreateRequest userCreateRequest = new()
             {
-                City = "例：広島市",
-                DateOfBirth = DateTime.Now.Date.AddYears(-25),
-                DisplayName = "Red",
-                IDassId = Guid.NewGuid().ToString(),
-                MailAddress = "test@example.com",
-                FirstName = "例：太郎",
-                LastName = "例：中古",
-                PhoneNumber = "09099999999",
-                State = "例；広島県",
-                Street1 = "例：国泰寺町",
-                Street2 = "例：1丁目6-34 市役所",
-                Zip = "例：730-8586"
+                IdaasId = Guid.NewGuid().ToString(),
+                DisplayName = "test",
+                MailAddress = "test@sample.com"
             };
 
-            User expectedUser = new
-            (
-                UserId.Create(),
-                new IDassId(request.IDassId),
-                new Name(request.FirstName, request.LastName),
-                new DisplayName(request.DisplayName),
-                new DateOfBirth(request.DateOfBirth),
-                new PhoneNumber(request.PhoneNumber),
-                new MailAddress(request.MailAddress),
-                new Address(
-                    new Zip(request.Zip),
-                    new State(request.State),
-                    new City(request.City),
-                    new Street1(request.Street1),
-                    new Street2(request.Street2))
+            IdaasInfo idaasInfo = new(
+                new IdaasId(Guid.NewGuid().ToString()),
+                new DisplayName("test"),
+                new MailAddress("test@sample.com")
             );
-            userRepository.Setup(_ => _.FindAsync(It.IsAny<IDassId>())).ReturnsAsync(expectedUser);
 
-            UserCreateUseCase sut = new(userRepository.Object);
+            idaasRepository.Setup(_ => _.FindAsync(It.IsAny<IdaasId>())).ReturnsAsync(idaasInfo);
 
-            _ = await Assert.ThrowsAsync<DuplicatedUserException>(() => sut.ExecuteAsync(request));
+            UserCreateUseCase sut = new(idaasRepository.Object);
+
+            _ = await Assert.ThrowsAsync<DuplicatedUserException>(() => sut.ExecuteAsync(userCreateRequest));
 
         }
     }

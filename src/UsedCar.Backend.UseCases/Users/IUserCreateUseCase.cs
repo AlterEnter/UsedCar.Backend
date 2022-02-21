@@ -1,5 +1,4 @@
-﻿using UsedCar.Backend.Domains.Users.AggregateRoots;
-using UsedCar.Backend.UseCases.Users.Models;
+﻿using UsedCar.Backend.UseCases.Users.Models;
 
 namespace UsedCar.Backend.UseCases.Users
 {

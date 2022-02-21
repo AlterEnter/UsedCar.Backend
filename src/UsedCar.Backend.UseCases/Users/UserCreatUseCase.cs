@@ -8,39 +8,29 @@ namespace UsedCar.Backend.UseCases.Users
 {
     public class UserCreateUseCase : IUserCreateUseCase
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IIdaasRepository _idaasRepository;
 
-        public UserCreateUseCase(IUserRepository userRepository)
+        public UserCreateUseCase(IIdaasRepository idaasRepository)
         {
-            _userRepository = userRepository;
+            _idaasRepository = idaasRepository;
         }
 
         public async Task ExecuteAsync(UserCreateRequest userCreateRequest)
         {
-            User? duplicatedUser = await _userRepository.FindAsync(new IDassId(userCreateRequest.IDassId));
+            IdaasInfo? duplicatedIdaas = await _idaasRepository.FindAsync(new IdaasId(userCreateRequest.IdaasId));
 
-            if (duplicatedUser is not null)
+            if (duplicatedIdaas is not null)
             {
                 throw new DuplicatedUserException();
             }
 
-            User user = new
-            (
-                UserId.Create(), 
-                new IDassId(userCreateRequest.IDassId),
-                new Name(userCreateRequest.FirstName, userCreateRequest.LastName),
+            IdaasInfo idaasInfo = new(
+                new IdaasId(userCreateRequest.IdaasId),
                 new DisplayName(userCreateRequest.DisplayName),
-                new DateOfBirth(userCreateRequest.DateOfBirth),
-                new PhoneNumber(userCreateRequest.PhoneNumber),
-                new MailAddress(userCreateRequest.MailAddress),
-                new Address(
-                        new Zip(userCreateRequest.Zip),
-                        new State(userCreateRequest.State),
-                        new City(userCreateRequest.City),
-                        new Street1(userCreateRequest.Street1),
-                        new Street2(userCreateRequest.Street2))
+                new MailAddress(userCreateRequest.MailAddress)
                 );
-            await _userRepository.CreateAsync(user);
+
+            await _idaasRepository.CreateAsync(idaasInfo);
         }
     }
 }

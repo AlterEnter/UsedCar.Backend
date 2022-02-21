@@ -10,9 +10,9 @@ namespace UsedCar.Backend.Domains.Users.ValueObjects
         {
             string expectedIDassId = Guid.NewGuid().ToString();
 
-            IDassId iDassId = new(expectedIDassId);
+            IdaasId iIdaasId = new(expectedIDassId);
 
-            Assert.Equal(expectedIDassId, iDassId.Value);
+            Assert.Equal(expectedIDassId, iIdaasId.Value);
         }
 
         [Theory(DisplayName = "NullかEmptyの場合")]
@@ -20,7 +20,7 @@ namespace UsedCar.Backend.Domains.Users.ValueObjects
         [InlineData(null)]
         public void IDassId02(string iDassId)
         {
-            Assert.Throws<ArgumentNullException>(() => new IDassId(iDassId));
+            Assert.Throws<ArgumentNullException>(() => new IdaasId(iDassId));
         }
     }
 }

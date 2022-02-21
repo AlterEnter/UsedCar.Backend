@@ -13,24 +13,15 @@ namespace UsedCar.Backend.Domains.Users.AggregateRoots
             var expectedUserId = Guid.NewGuid();
             UserId userId = new(expectedUserId);
 
-            var expectedIDassId = Guid.NewGuid().ToString();
-            IDassId iDassId = new(expectedIDassId);
-
             var expectedFirstName = "fizz";
             var expectedLastName = "buzz";
             Name name = new(expectedFirstName, expectedLastName);
-
-            var expectedDisplayName = "test";
-            DisplayName displayName = new(expectedDisplayName);
 
             var expectedDateOfBirth = new DateTime(2000,01,01);
             DateOfBirth dateOfBirth = new(expectedDateOfBirth);
 
             var expectedPhoneNumber = "000-0000-0000";
             PhoneNumber phoneNumber = new(expectedPhoneNumber);
-
-            var expectedMailAddress = "test@sample.com";
-            MailAddress mailAddress = new(expectedMailAddress);
 
             var expectedZip = "000-0000";
             Zip zip = new(expectedZip);
@@ -57,23 +48,17 @@ namespace UsedCar.Backend.Domains.Users.AggregateRoots
             // Act
             User user = new(
                 userId,
-                iDassId,
                 name,
-                displayName,
                 dateOfBirth,
                 phoneNumber,
-                mailAddress,
                 address
                 );
 
             // Assert
             Assert.Equal(expectedUserId, user.UserId.Value);
-            Assert.Equal(expectedIDassId, user.IDassId.Value);
             Assert.Equal(expectedFirstName, user.Name.FirstName);
             Assert.Equal(expectedLastName, user.Name.LastName);
-            Assert.Equal(expectedDisplayName, user.DisplayName.Value);
             Assert.Equal(expectedDateOfBirth, user.DateOfBirth.Value);
-            Assert.Equal(expectedMailAddress, user.MailAddress.Value);
             Assert.Equal(expectedZip, user.Address.Zip.Value);
             Assert.Equal(expectedState, user.Address.State.Value);
             Assert.Equal(expectedCity, user.Address.City.Value);

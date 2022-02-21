@@ -44,21 +44,14 @@ namespace UsedCar.Backend.Presentations.Functions.Users
                 response.StatusCode = HttpStatusCode.BadRequest;
                 return response;
             }
+
             UserCreateRequest userCreateRequest = new()
             {
-                City = "例：広島市",
-                DateOfBirth = DateTime.Parse(new TokenResolver(claimsPrincipal).GetDateOfBirth()),
+                IdaasId = new TokenResolver(claimsPrincipal).GetId(),
                 DisplayName = new TokenResolver(claimsPrincipal).GetDisplayName(),
-                IDassId = new TokenResolver(claimsPrincipal).GetId(),
-                MailAddress = new TokenResolver(claimsPrincipal).GetMailAddress(),
-                FirstName = "例：太郎",
-                LastName = "例：中古",
-                PhoneNumber = new TokenResolver(claimsPrincipal).GetPhoneNumber(),
-                State = "例；広島県",
-                Street1 = "例：国泰寺町",
-                Street2 = "例：1丁目6-34 市役所",
-                Zip = "例：730-8586"
+                MailAddress = new TokenResolver(claimsPrincipal).GetMailAddress()
             };
+            
             try
             {
                 await _userCreateUseCase.ExecuteAsync(userCreateRequest);
