@@ -15,9 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsedCar.Backend.UseCases", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsedCar.Backend.Presentations.Functions.Users", "src\UsedCar.Backend.Presentations.Functions.Users\UsedCar.Backend.Presentations.Functions.Users.csproj", "{4D7509C0-6BA2-4554-A832-F93998D625AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsedCar.Backend.Presentations.Functions.Core", "src\UsedCar.Backend.Presentations.Functions.Core\UsedCar.Backend.Presentations.Functions.Core.csproj", "{E67BC72B-38E5-4B6B-8554-211883236814}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsedCar.Backend.Presentations.Functions.Core", "src\UsedCar.Backend.Presentations.Functions.Core\UsedCar.Backend.Presentations.Functions.Core.csproj", "{E67BC72B-38E5-4B6B-8554-211883236814}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsedCar.Backend.UseCase.Tests", "test\UsedCar.Backend.UseCase.Tests\UsedCar.Backend.UseCase.Tests.csproj", "{1C6D17F4-3A32-446A-A5C7-A2FB9BA99542}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsedCar.Backend.UseCase.Tests", "test\UsedCar.Backend.UseCase.Tests\UsedCar.Backend.UseCase.Tests.csproj", "{1C6D17F4-3A32-446A-A5C7-A2FB9BA99542}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsedCar.Backend.Infrastructures.EntityFrameworkCore", "src\UsedCar.Backend.Infrastructures.EntityFrameworkCore\UsedCar.Backend.Infrastructures.EntityFrameworkCore.csproj", "{4C018FC4-2050-4634-B550-662DC081E644}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{1C6D17F4-3A32-446A-A5C7-A2FB9BA99542}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C6D17F4-3A32-446A-A5C7-A2FB9BA99542}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C6D17F4-3A32-446A-A5C7-A2FB9BA99542}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C018FC4-2050-4634-B550-662DC081E644}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C018FC4-2050-4634-B550-662DC081E644}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C018FC4-2050-4634-B550-662DC081E644}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C018FC4-2050-4634-B550-662DC081E644}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{4D7509C0-6BA2-4554-A832-F93998D625AE} = {B1985547-B44C-41B8-B19D-82012210E3C2}
 		{E67BC72B-38E5-4B6B-8554-211883236814} = {B1985547-B44C-41B8-B19D-82012210E3C2}
 		{1C6D17F4-3A32-446A-A5C7-A2FB9BA99542} = {CE147F13-2AB8-4F8B-BB76-912D608A94DD}
+		{4C018FC4-2050-4634-B550-662DC081E644} = {B1985547-B44C-41B8-B19D-82012210E3C2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {36E22B7D-5D2D-47F5-AB4B-5559B4249AC3}
