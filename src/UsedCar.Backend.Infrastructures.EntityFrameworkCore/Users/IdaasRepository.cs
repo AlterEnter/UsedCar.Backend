@@ -18,6 +18,8 @@ namespace UsedCar.Backend.Infrastructures.EntityFrameworkCore.Users
             var idaasInfoEfCore = idaasInfo.ToTable();
 
             await _dBContext.AddAsync(idaasInfoEfCore);
+
+            await _dBContext.SaveChangesAsync();
         }
 
         public Task DeleteAsync(Domains.Users.AggregateRoots.IdaasInfo idaasInfo)
