@@ -15,6 +15,8 @@ namespace UsedCar.Backend.Infrastructures.EntityFrameworkCore
         }
 
         public virtual DbSet<IdaasInfo> IdaasInfos { get; set; } = null!;
+        public virtual DbSet<User> Users { get; set; } = null!;
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -23,7 +25,7 @@ namespace UsedCar.Backend.Infrastructures.EntityFrameworkCore
             modelBuilder.Entity<IdaasInfo>(entity =>
             {
                 entity.HasKey(e => e.IdaasInfoNumber)
-                    .HasName("PK__IdaasInf__A2EC98441AA88DA7");
+                    .HasName("PK__IdaasInf__A2EC9844411AFE0B");
 
                 entity.ToTable("IdaasInfo", "UsedCar");
 
@@ -38,6 +40,40 @@ namespace UsedCar.Backend.Infrastructures.EntityFrameworkCore
                 entity.Property(e => e.IdpUserId).HasMaxLength(36);
 
                 entity.Property(e => e.MailAddress).HasMaxLength(254);
+            });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasKey(e => e.UserNumber)
+                    .HasName("PK__User__578B7EF79E2C98D4");
+
+                entity.ToTable("User", "UsedCar");
+
+                entity.HasIndex(e => e.UserId, "UQ_User_UserId")
+                    .IsUnique();
+
+                entity.Property(e => e.City).HasMaxLength(10);
+
+                entity.Property(e => e.FirstName).HasMaxLength(15);
+
+                entity.Property(e => e.IdpUserId).HasMaxLength(36);
+
+                entity.Property(e => e.LastName).HasMaxLength(15);
+
+                entity.Property(e => e.State).HasMaxLength(10);
+
+                entity.Property(e => e.Street1).HasMaxLength(30);
+
+                entity.Property(e => e.Street2).HasMaxLength(30);
+
+                entity.Property(e => e.Zip).HasMaxLength(10);
+
+                entity.HasOne(d => d.IdpUser)
+                    .WithMany(p => p.Users)
+                    .HasPrincipalKey(p => p.IdpUserId)
+                    .HasForeignKey(d => d.IdpUserId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_User_IdpUserId");
             });
 
             OnModelCreatingPartial(modelBuilder);
