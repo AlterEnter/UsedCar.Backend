@@ -23,9 +23,14 @@ namespace UsedCar.Backend.Infrastructures.EntityFrameworkCore.Users
             await _dBContext.SaveChangesAsync();
         }
 
-        public Task DeleteAsync(Domains.Users.AggregateRoots.IdaasInfo idaasInfo)
+        public async Task DeleteAsync(Domains.Users.AggregateRoots.IdaasInfo idaasInfo)
         {
-            throw new NotImplementedException();
+            var idaasInfoEntity = await _dBContext.IdaasInfos
+                .FirstOrDefaultAsync(i => i.IdpUserId == idaasInfo.IdaasId.Value) ?? throw new ArgumentNullException(nameof(idaasInfo), "idaasInfo can not be found");
+
+            _dBContext.Remove(idaasInfoEntity);
+
+            await _dBContext.SaveChangesAsync();
         }
 
         public async Task<Domains.Users.AggregateRoots.IdaasInfo?> FindAsync(IdaasId idaasId) => await _dBContext
