@@ -1,4 +1,5 @@
-﻿using UsedCar.Backend.Domains.Users;
+﻿using Microsoft.EntityFrameworkCore;
+using UsedCar.Backend.Domains.Users;
 using UsedCar.Backend.Domains.Users.ValueObjects;
 using UsedCar.Backend.Infrastructures.EntityFrameworkCore.Models;
 
@@ -27,10 +28,14 @@ namespace UsedCar.Backend.Infrastructures.EntityFrameworkCore.Users
             throw new NotImplementedException();
         }
 
-        public Task<Domains.Users.AggregateRoots.IdaasInfo?> FindAsync(IdaasId idaasId)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<Domains.Users.AggregateRoots.IdaasInfo?> FindAsync(IdaasId idaasId) => await _dBContext
+            .IdaasInfos
+            .Where(i => i.IdpUserId == idaasId.Value)
+            .Select(i => new Domains.Users.AggregateRoots.IdaasInfo(
+                new IdaasId(i.IdpUserId),
+                new DisplayName(i.DisplayName),
+                new MailAddress(i.MailAddress)))
+            .FirstOrDefaultAsync();
 
         public Task UpdateAsync(Domains.Users.AggregateRoots.IdaasInfo idaasInfo)
         {
