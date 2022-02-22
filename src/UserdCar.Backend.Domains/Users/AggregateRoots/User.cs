@@ -12,6 +12,7 @@ namespace UsedCar.Backend.Domains.Users.AggregateRoots
     /// <param name="Address">住所</param>
     public record User(
         UserId UserId,
+        IdaasId IdaasId,
         Name Name,
         DateOfBirth DateOfBirth,
         PhoneNumber PhoneNumber,

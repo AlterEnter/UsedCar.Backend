@@ -6,7 +6,7 @@ namespace UsedCar.Backend.Domains.Users
     public interface IUserRepository
     {
         Task CreateAsync(User user);
-        Task<User> FindAsync(IdaasId iIdaasId);
+        Task<User?> FindAsync(IdaasId idaasId);
         Task UpdateAsync(User user);
         Task DeleteAsync(UserId userId);
     }

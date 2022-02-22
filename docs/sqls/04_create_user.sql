@@ -7,6 +7,7 @@ CREATE TABLE [UsedCar].[User] (
     [FirstName] NVARCHAR(15) NOT NULL,
     [LastName] NVARCHAR(15) NOT NULL,
     [DateOfBirth] datetime2 NOT NULL,
+    [PhoneNumbear] NVARCHAR(15)NOT NULL,
     [Zip] NVARCHAR(10) NOT NULL,
     [State] NVARCHAR(10) NOT NULL,
     [City] NVARCHAR(10) NOT NULL,

@@ -13,6 +13,9 @@ namespace UsedCar.Backend.Domains.Users.AggregateRoots
             var expectedUserId = Guid.NewGuid();
             UserId userId = new(expectedUserId);
 
+            var expectedIdaasId = Guid.NewGuid().ToString();
+            IdaasId idaasId = new(expectedIdaasId);
+
             var expectedFirstName = "fizz";
             var expectedLastName = "buzz";
             Name name = new(expectedFirstName, expectedLastName);
@@ -48,6 +51,7 @@ namespace UsedCar.Backend.Domains.Users.AggregateRoots
             // Act
             User user = new(
                 userId,
+                idaasId,
                 name,
                 dateOfBirth,
                 phoneNumber,

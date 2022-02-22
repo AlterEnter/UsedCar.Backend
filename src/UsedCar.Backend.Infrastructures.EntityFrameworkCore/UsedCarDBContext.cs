@@ -17,7 +17,6 @@ namespace UsedCar.Backend.Infrastructures.EntityFrameworkCore
         public virtual DbSet<IdaasInfo> IdaasInfos { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
 
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.UseCollation("Japanese_BIN2");
@@ -45,7 +44,7 @@ namespace UsedCar.Backend.Infrastructures.EntityFrameworkCore
             modelBuilder.Entity<User>(entity =>
             {
                 entity.HasKey(e => e.UserNumber)
-                    .HasName("PK__User__578B7EF79E2C98D4");
+                    .HasName("PK__User__578B7EF7F0FE2B34");
 
                 entity.ToTable("User", "UsedCar");
 
@@ -59,6 +58,8 @@ namespace UsedCar.Backend.Infrastructures.EntityFrameworkCore
                 entity.Property(e => e.IdpUserId).HasMaxLength(36);
 
                 entity.Property(e => e.LastName).HasMaxLength(15);
+
+                entity.Property(e => e.PhoneNumber).HasMaxLength(15);
 
                 entity.Property(e => e.State).HasMaxLength(10);
 
