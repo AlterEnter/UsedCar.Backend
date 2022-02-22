@@ -16,9 +16,9 @@ namespace UsedCar.Backend.Infrastructures.EntityFrameworkCore.Users
 
         public async Task CreateAsync(Domains.Users.AggregateRoots.IdaasInfo idaasInfo)
         {
-            var idaasInfoEfCore = idaasInfo.ToTable();
+            var idaasInfoEntity = idaasInfo.ToTable();
 
-            await _dBContext.AddAsync(idaasInfoEfCore);
+            await _dBContext.AddAsync(idaasInfoEntity);
 
             await _dBContext.SaveChangesAsync();
         }
@@ -42,9 +42,15 @@ namespace UsedCar.Backend.Infrastructures.EntityFrameworkCore.Users
                 new MailAddress(i.MailAddress)))
             .FirstOrDefaultAsync();
 
-        public Task UpdateAsync(Domains.Users.AggregateRoots.IdaasInfo idaasInfo)
+        public async Task UpdateAsync(Domains.Users.AggregateRoots.IdaasInfo idaasInfo)
         {
-            throw new NotImplementedException();
+            var idaasInfoEntity = await _dBContext.IdaasInfos
+                .FirstOrDefaultAsync(i => i.IdpUserId == idaasInfo.IdaasId.Value) ?? throw new ArgumentNullException(nameof(idaasInfo), "idaasInfo can not be found");
+
+            idaasInfoEntity.MailAddress = idaasInfo.MailAddress.Value;
+            idaasInfoEntity.DisplayName = idaasInfo.DisplayName.Value;
+
+            await _dBContext.SaveChangesAsync();
         }
     }
 }
