@@ -3,7 +3,6 @@
     public partial class User
     {
         public long UserNumber { get; set; }
-        public DateTime CreatedAt { get; set; }
         public Guid UserId { get; set; }
         public string IdpUserId { get; set; } = null!;
         public string FirstName { get; set; } = null!;

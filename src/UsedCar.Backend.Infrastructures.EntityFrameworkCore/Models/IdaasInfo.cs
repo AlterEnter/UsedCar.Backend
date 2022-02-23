@@ -8,7 +8,6 @@
         }
 
         public long IdaasInfoNumber { get; set; }
-        public DateTime CreatedAt { get; set; }
         public string IdpUserId { get; set; } = null!;
         public string DisplayName { get; set; } = null!;
         public string MailAddress { get; set; } = null!;
