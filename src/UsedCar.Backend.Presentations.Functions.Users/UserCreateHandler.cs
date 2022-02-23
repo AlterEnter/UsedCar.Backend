@@ -1,7 +1,5 @@
 ﻿using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
 using System;
 using System.Net;
 using System.Security.Claims;
@@ -24,7 +22,7 @@ namespace UsedCar.Backend.Presentations.Functions.Users
 
 
 
-        [FunctionName($"{nameof(Users)}.{nameof(UserCreateHandler)}")]
+        [Function($"{nameof(Users)}.{nameof(UserCreateHandler)}")]
         public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "users")] HttpRequestData req, FunctionContext context)
         {
             HttpResponseData response = req.CreateResponse(HttpStatusCode.Created);

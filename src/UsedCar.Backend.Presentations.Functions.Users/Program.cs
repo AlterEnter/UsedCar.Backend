@@ -1,9 +1,9 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Net;
 using System.Net.Http;
-using Microsoft.EntityFrameworkCore;
 using UsedCar.Backend.Domains.Users;
 using UsedCar.Backend.Infrastructures.EntityFrameworkCore;
 using UsedCar.Backend.Infrastructures.EntityFrameworkCore.Users;
@@ -27,7 +27,6 @@ namespace UsedCar.Backend.Presentations.Functions.Users
                     worker.UseMiddleware<AuthenticationMiddleware>();
 
                 })
-                //.ConfigureOpenApi()
                 .ConfigureServices(s =>
                 {
                     ServiceProvider provider = s.BuildServiceProvider();
