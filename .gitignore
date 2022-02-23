@@ -360,3 +360,26 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/src/UsedCar.Backend.Infrastructures.EntityFrameworkCore/obj/Debug/net6.0/*.cache
+/src/UsedCar.Backend.Infrastructures.EntityFrameworkCore/obj/Debug/net6.0/*.txt
+/src/UsedCar.Backend.Infrastructures.EntityFrameworkCore/obj/*.json
+/src/UsedCar.Backend.Infrastructures.EntityFrameworkCore/obj/*.props
+/src/UsedCar.Backend.Presentations.Functions.Core/obj/Debug/net6.0/*.cache
+/src/UsedCar.Backend.Presentations.Functions.Core/obj/Debug/net6.0/*.txt
+/src/UsedCar.Backend.Presentations.Functions.Core/obj/*.json
+/src/UsedCar.Backend.Presentations.Functions.Core/obj/*.props
+/src/UsedCar.Backend.UseCases/obj/Debug/net6.0/*.cache
+/src/UsedCar.Backend.UseCases/obj/Debug/net6.0/*.txt
+/src/UsedCar.Backend.UseCases/obj/*.json
+/src/UsedCar.Backend.UseCases/obj/*.props
+/test/UsedCar.Backend.Domains.Tests/obj/Debug/net6.0/*.cache
+/test/UsedCar.Backend.Domains.Tests/obj/*.json
+/test/UsedCar.Backend.Domains.Tests/obj/*.props
+/test/UsedCar.Backend.Infrastructures.EntityFrameworkCore.Tests/obj/Debug/net6.0/*.cache
+/test/UsedCar.Backend.Infrastructures.EntityFrameworkCore.Tests/obj/Debug/net6.0/*.txt
+/test/UsedCar.Backend.Infrastructures.EntityFrameworkCore.Tests/obj/*.json
+/test/UsedCar.Backend.Infrastructures.EntityFrameworkCore.Tests/obj/*.props
+/test/UsedCar.Backend.UseCase.Tests/obj/Debug/net6.0/*.cache
+/test/UsedCar.Backend.UseCase.Tests/obj/Debug/net6.0/*.txt
+/test/UsedCar.Backend.UseCase.Tests/obj/*.json
+/test/UsedCar.Backend.UseCase.Tests/obj/*.props
