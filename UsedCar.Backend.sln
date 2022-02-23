@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsedCar.Backend.UseCase.Tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsedCar.Backend.Infrastructures.EntityFrameworkCore", "src\UsedCar.Backend.Infrastructures.EntityFrameworkCore\UsedCar.Backend.Infrastructures.EntityFrameworkCore.csproj", "{4C018FC4-2050-4634-B550-662DC081E644}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsedCar.Backend.Infrastructures.EntityFrameworkCore.Tests", "test\UsedCar.Backend.Infrastructures.EntityFrameworkCore.Tests\UsedCar.Backend.Infrastructures.EntityFrameworkCore.Tests.csproj", "{096A8C2F-8B65-4117-8587-941EF65FAF42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsedCar.Backend.Infrastructures.EntityFrameworkCore.Tests", "test\UsedCar.Backend.Infrastructures.EntityFrameworkCore.Tests\UsedCar.Backend.Infrastructures.EntityFrameworkCore.Tests.csproj", "{096A8C2F-8B65-4117-8587-941EF65FAF42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsedCar.Backend.LoggerExtensions", "src\UsedCar.Backend.LoggerExtensions\UsedCar.Backend.LoggerExtensions.csproj", "{58638493-62C1-4A4E-B060-362C83B4F98B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,10 @@ Global
 		{096A8C2F-8B65-4117-8587-941EF65FAF42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{096A8C2F-8B65-4117-8587-941EF65FAF42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{096A8C2F-8B65-4117-8587-941EF65FAF42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58638493-62C1-4A4E-B060-362C83B4F98B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58638493-62C1-4A4E-B060-362C83B4F98B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58638493-62C1-4A4E-B060-362C83B4F98B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58638493-62C1-4A4E-B060-362C83B4F98B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +80,7 @@ Global
 		{1C6D17F4-3A32-446A-A5C7-A2FB9BA99542} = {CE147F13-2AB8-4F8B-BB76-912D608A94DD}
 		{4C018FC4-2050-4634-B550-662DC081E644} = {B1985547-B44C-41B8-B19D-82012210E3C2}
 		{096A8C2F-8B65-4117-8587-941EF65FAF42} = {CE147F13-2AB8-4F8B-BB76-912D608A94DD}
+		{58638493-62C1-4A4E-B060-362C83B4F98B} = {B1985547-B44C-41B8-B19D-82012210E3C2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {36E22B7D-5D2D-47F5-AB4B-5559B4249AC3}
