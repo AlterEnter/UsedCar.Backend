@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\test\\UsedCar.Backend.UseCase.Tests\\UsedCar.Backend.UseCase.Tests.csproj": {}
+    "C:\\Users\\m212042\\Desktop\\Projects\\Backend\\training\\UsedCar.Backend\\test\\UsedCar.Backend.UseCase.Tests\\UsedCar.Backend.UseCase.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\src\\UsedCar.Backend.UseCases\\UsedCar.Backend.UseCases.csproj": {
+    "C:\\Users\\m212042\\Desktop\\Projects\\Backend\\training\\UsedCar.Backend\\src\\UsedCar.Backend.UseCases\\UsedCar.Backend.UseCases.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\src\\UsedCar.Backend.UseCases\\UsedCar.Backend.UseCases.csproj",
+        "projectUniqueName": "C:\\Users\\m212042\\Desktop\\Projects\\Backend\\training\\UsedCar.Backend\\src\\UsedCar.Backend.UseCases\\UsedCar.Backend.UseCases.csproj",
         "projectName": "UsedCar.Backend.UseCases",
-        "projectPath": "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\src\\UsedCar.Backend.UseCases\\UsedCar.Backend.UseCases.csproj",
-        "packagesPath": "C:\\Users\\m171172\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\src\\UsedCar.Backend.UseCases\\obj\\",
+        "projectPath": "C:\\Users\\m212042\\Desktop\\Projects\\Backend\\training\\UsedCar.Backend\\src\\UsedCar.Backend.UseCases\\UsedCar.Backend.UseCases.csproj",
+        "packagesPath": "C:\\Users\\m212042\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\m212042\\Desktop\\Projects\\Backend\\training\\UsedCar.Backend\\src\\UsedCar.Backend.UseCases\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\m171172\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\m212042\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +32,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\src\\UserdCar.Backend.Domains\\UsedCar.Backend.Domains.csproj": {
-                "projectPath": "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\src\\UserdCar.Backend.Domains\\UsedCar.Backend.Domains.csproj"
+              "C:\\Users\\m212042\\Desktop\\Projects\\Backend\\training\\UsedCar.Backend\\src\\UserdCar.Backend.Domains\\UsedCar.Backend.Domains.csproj": {
+                "projectPath": "C:\\Users\\m212042\\Desktop\\Projects\\Backend\\training\\UsedCar.Backend\\src\\UserdCar.Backend.Domains\\UsedCar.Backend.Domains.csproj"
               }
             }
           }
@@ -58,21 +62,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\src\\UserdCar.Backend.Domains\\UsedCar.Backend.Domains.csproj": {
+    "C:\\Users\\m212042\\Desktop\\Projects\\Backend\\training\\UsedCar.Backend\\src\\UserdCar.Backend.Domains\\UsedCar.Backend.Domains.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\src\\UserdCar.Backend.Domains\\UsedCar.Backend.Domains.csproj",
+        "projectUniqueName": "C:\\Users\\m212042\\Desktop\\Projects\\Backend\\training\\UsedCar.Backend\\src\\UserdCar.Backend.Domains\\UsedCar.Backend.Domains.csproj",
         "projectName": "UsedCar.Backend.Domains",
-        "projectPath": "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\src\\UserdCar.Backend.Domains\\UsedCar.Backend.Domains.csproj",
-        "packagesPath": "C:\\Users\\m171172\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\src\\UserdCar.Backend.Domains\\obj\\",
+        "projectPath": "C:\\Users\\m212042\\Desktop\\Projects\\Backend\\training\\UsedCar.Backend\\src\\UserdCar.Backend.Domains\\UsedCar.Backend.Domains.csproj",
+        "packagesPath": "C:\\Users\\m212042\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\m212042\\Desktop\\Projects\\Backend\\training\\UsedCar.Backend\\src\\UserdCar.Backend.Domains\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\m171172\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\m212042\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -112,21 +120,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\test\\UsedCar.Backend.UseCase.Tests\\UsedCar.Backend.UseCase.Tests.csproj": {
+    "C:\\Users\\m212042\\Desktop\\Projects\\Backend\\training\\UsedCar.Backend\\test\\UsedCar.Backend.UseCase.Tests\\UsedCar.Backend.UseCase.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\test\\UsedCar.Backend.UseCase.Tests\\UsedCar.Backend.UseCase.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\m212042\\Desktop\\Projects\\Backend\\training\\UsedCar.Backend\\test\\UsedCar.Backend.UseCase.Tests\\UsedCar.Backend.UseCase.Tests.csproj",
         "projectName": "UsedCar.Backend.UseCase.Tests",
-        "projectPath": "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\test\\UsedCar.Backend.UseCase.Tests\\UsedCar.Backend.UseCase.Tests.csproj",
-        "packagesPath": "C:\\Users\\m171172\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\test\\UsedCar.Backend.UseCase.Tests\\obj\\",
+        "projectPath": "C:\\Users\\m212042\\Desktop\\Projects\\Backend\\training\\UsedCar.Backend\\test\\UsedCar.Backend.UseCase.Tests\\UsedCar.Backend.UseCase.Tests.csproj",
+        "packagesPath": "C:\\Users\\m212042\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\m212042\\Desktop\\Projects\\Backend\\training\\UsedCar.Backend\\test\\UsedCar.Backend.UseCase.Tests\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\m171172\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\m212042\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -140,11 +152,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\src\\UsedCar.Backend.UseCases\\UsedCar.Backend.UseCases.csproj": {
-                "projectPath": "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\src\\UsedCar.Backend.UseCases\\UsedCar.Backend.UseCases.csproj"
+              "C:\\Users\\m212042\\Desktop\\Projects\\Backend\\training\\UsedCar.Backend\\src\\UsedCar.Backend.UseCases\\UsedCar.Backend.UseCases.csproj": {
+                "projectPath": "C:\\Users\\m212042\\Desktop\\Projects\\Backend\\training\\UsedCar.Backend\\src\\UsedCar.Backend.UseCases\\UsedCar.Backend.UseCases.csproj"
               },
-              "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\src\\UserdCar.Backend.Domains\\UsedCar.Backend.Domains.csproj": {
-                "projectPath": "C:\\Users\\m171172\\Desktop\\mytrainning\\UsedCar.Backend\\src\\UserdCar.Backend.Domains\\UsedCar.Backend.Domains.csproj"
+              "C:\\Users\\m212042\\Desktop\\Projects\\Backend\\training\\UsedCar.Backend\\src\\UserdCar.Backend.Domains\\UsedCar.Backend.Domains.csproj": {
+                "projectPath": "C:\\Users\\m212042\\Desktop\\Projects\\Backend\\training\\UsedCar.Backend\\src\\UserdCar.Backend.Domains\\UsedCar.Backend.Domains.csproj"
               }
             }
           }
@@ -199,7 +211,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
