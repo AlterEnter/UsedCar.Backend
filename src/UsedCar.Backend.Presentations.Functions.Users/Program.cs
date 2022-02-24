@@ -9,6 +9,7 @@ using UsedCar.Backend.Infrastructures.EntityFrameworkCore;
 using UsedCar.Backend.Infrastructures.EntityFrameworkCore.Users;
 using UsedCar.Backend.Infrastructures.Idaas;
 using UsedCar.Backend.Presentations.Functions.Core.Authorizations;
+using UsedCar.Backend.Presentations.Functions.Core.Errors;
 using UsedCar.Backend.UseCases.Users;
 
 namespace UsedCar.Backend.Presentations.Functions.Users
@@ -24,9 +25,8 @@ namespace UsedCar.Backend.Presentations.Functions.Users
                 .ConfigureFunctionsWorkerDefaults(worker =>
                 {
                     //worker.UseNewtonsoftJson();
-                    //worker.UseMiddleware<UnhandledExceptionMiddleware>();
+                    worker.UseMiddleware<UnhandledExceptionMiddleware>();
                     worker.UseMiddleware<AuthenticationMiddleware>();
-
                 })
                 .ConfigureServices(s =>
                 {
