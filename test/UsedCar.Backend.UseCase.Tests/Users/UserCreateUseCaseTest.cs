@@ -17,7 +17,6 @@ namespace UsedCar.Backend.UseCase.Users
         public async Task ExecuteAsync01()
         {
             var idaasRepository = new Mock<IIdaasRepository>();
-            idaasRepository.Setup(_ => _.CreateAsync(It.IsAny<IdaasInfo>())).Verifiable();
 
             UserCreateRequest userCreateRequest = new()
             {

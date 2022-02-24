@@ -68,10 +68,6 @@ namespace UsedCar.Backend.UseCase.Users
                 Street2 = user.Address.Street2.Value
             };
 
-            
-            idaasRepository.Setup(_ => _.UpdateAsync(idaasInfo)).Verifiable();
-            userRepository.Setup(_ => _.CreateAsync(user)).Verifiable();
-
             await sut.ExecuteAsync(userUpdateRequest);
 
             idaasRepository.Verify(_ => _.UpdateAsync(idaasInfo), Times.Once());
@@ -135,9 +131,6 @@ namespace UsedCar.Backend.UseCase.Users
             };
 
             await sut.ExecuteAsync(userUpdateRequest);
-
-            idaasRepository.Setup(_ => _.UpdateAsync(idaasInfo)).Verifiable();
-            userRepository.Setup(_ => _.UpdateAsync(user)).Verifiable();
 
             idaasRepository.Verify(_ => _.UpdateAsync(idaasInfo), Times.Once());
             userRepository.Verify(_ => _.CreateAsync(It.IsAny<User>()), Times.Never());
