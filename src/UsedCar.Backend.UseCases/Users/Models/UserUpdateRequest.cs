@@ -12,7 +12,7 @@
         public string MailAddress { get; set;} = string.Empty;
         public string State { get; set; } = string.Empty;
         public string Street1 { get; set; } = string.Empty;
-        public string Street2 { get; set; } = string.Empty;
+        public string? Street2 { get; set; } = string.Empty;
         public string Zip { get; set; } = string.Empty;
     }
 }
