@@ -16,6 +16,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UsedCar.Backend.Infrastructures.EntityFrameworkCore\UsedCar.Backend.Infrastructures.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\UsedCar.Backend.Infrastructures.Idaas\UsedCar.Backend.Infrastructures.Idaas.csproj" />
     <ProjectReference Include="..\UsedCar.Backend.Presentations.Functions.Core\UsedCar.Backend.Presentations.Functions.Core.csproj" />
     <ProjectReference Include="..\UsedCar.Backend.UseCases\UsedCar.Backend.UseCases.csproj" />
   </ItemGroup>

@@ -1,15 +1,13 @@
-﻿using System.Data;
+﻿using Microsoft.Extensions.Logging;
 using System.Transactions;
-using Microsoft.Extensions.Logging;
 using UsedCar.Backend.Domains.Users;
-using UsedCar.Backend.Domains.Users.AggregateRoots;
 using UsedCar.Backend.Domains.Users.ValueObjects;
 using UsedCar.Backend.LoggerExtensions;
 using UsedCar.Backend.UseCases.Exceptions;
 
 namespace UsedCar.Backend.UseCases.Users
 {
-    public class UserDeleteUseCase
+    public class UserDeleteUseCase : IUserDeleteUseCase
     {
         private readonly IIdaasRepository _idaasRepository;
         private readonly IUserRepository _userRepository;
@@ -24,7 +22,7 @@ namespace UsedCar.Backend.UseCases.Users
             _idaasManagement = idaasManagement;
         }
 
-        public async Task ExcuteAsync(string idaasId)
+        public async Task ExecuteAsync(string idaasId)
         {
 
             var idaasInfo = _idaasRepository.FindAsync(new IdaasId(idaasId)).Result;

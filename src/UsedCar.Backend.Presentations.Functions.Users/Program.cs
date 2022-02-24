@@ -7,6 +7,7 @@ using System.Net.Http;
 using UsedCar.Backend.Domains.Users;
 using UsedCar.Backend.Infrastructures.EntityFrameworkCore;
 using UsedCar.Backend.Infrastructures.EntityFrameworkCore.Users;
+using UsedCar.Backend.Infrastructures.Idaas;
 using UsedCar.Backend.Presentations.Functions.Core.Authorizations;
 using UsedCar.Backend.UseCases.Users;
 
@@ -33,9 +34,14 @@ namespace UsedCar.Backend.Presentations.Functions.Users
                     var configuration = provider.GetRequiredService<IConfiguration>();
 
                     s.AddTransient<IUserCreateUseCase, UserCreateUseCase>();
+                    s.AddTransient<IUserReadUseCase, UserReadUseCase>();
+                    s.AddTransient<IUserUpdateUseCase, UserUpdateUseCase>();
+                    s.AddTransient<IUserDeleteUseCase, UserDeleteUseCase>();
 
                     s.AddTransient<IIdaasRepository, IdaasRepository>();
                     s.AddTransient<IUserRepository, UserRepository>();
+
+                    s.AddTransient<IIdaasManagement, IdaasManagement>();
 
 
                     s.AddDbContext<UsedCarDBContext>(options =>
