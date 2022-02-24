@@ -1,0 +1,65 @@
+﻿using System.Data;
+using System.Transactions;
+using Microsoft.Extensions.Logging;
+using UsedCar.Backend.Domains.Users;
+using UsedCar.Backend.Domains.Users.AggregateRoots;
+using UsedCar.Backend.Domains.Users.ValueObjects;
+using UsedCar.Backend.LoggerExtensions;
+using UsedCar.Backend.UseCases.Exceptions;
+
+namespace UsedCar.Backend.UseCases.Users
+{
+    public class UserDeleteUseCase
+    {
+        private readonly IIdaasRepository _idaasRepository;
+        private readonly IUserRepository _userRepository;
+        private readonly IIdaasManagement _idaasManagement; 
+        private readonly ILogger<UserDeleteUseCase> _logger;
+
+        public UserDeleteUseCase(IIdaasRepository idaasRepository, IUserRepository userRepository, ILogger<UserDeleteUseCase> logger, IIdaasManagement idaasManagement)
+        {
+            _idaasRepository = idaasRepository;
+            _userRepository = userRepository;
+            _logger = logger;
+            _idaasManagement = idaasManagement;
+        }
+
+        public async Task ExcuteAsync(string idaasId)
+        {
+
+            var idaasInfo = _idaasRepository.FindAsync(new IdaasId(idaasId)).Result;
+
+            if (idaasInfo is null)
+            {
+                throw new UserForbiddenException();
+            }
+
+            var user = _userRepository.FindAsync(idaasInfo.IdaasId).Result;
+
+            if (user is null)
+            {
+                throw new UserForbiddenException();
+            }
+            try
+            {
+                using var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);
+                await _idaasRepository.DeleteAsync(idaasInfo);
+                await _userRepository.DeleteAsync(user.UserId);
+                transaction.Complete();
+            }
+            catch (Exception e)
+            {
+                _logger.UserDeleteFailed(idaasInfo.IdaasId.Value, e);
+                throw;
+            }
+
+
+
+
+
+
+
+
+        }
+    }
+}

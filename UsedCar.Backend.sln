@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsedCar.Backend.Infrastruct
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsedCar.Backend.Infrastructures.EntityFrameworkCore.Tests", "test\UsedCar.Backend.Infrastructures.EntityFrameworkCore.Tests\UsedCar.Backend.Infrastructures.EntityFrameworkCore.Tests.csproj", "{096A8C2F-8B65-4117-8587-941EF65FAF42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsedCar.Backend.LoggerExtensions", "src\UsedCar.Backend.LoggerExtensions\UsedCar.Backend.LoggerExtensions.csproj", "{58638493-62C1-4A4E-B060-362C83B4F98B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsedCar.Backend.LoggerExtensions", "src\UsedCar.Backend.LoggerExtensions\UsedCar.Backend.LoggerExtensions.csproj", "{58638493-62C1-4A4E-B060-362C83B4F98B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsedCar.Backend.Infrastructures.Idaas", "src\UsedCar.Backend.Infrastructures.Idaas\UsedCar.Backend.Infrastructures.Idaas.csproj", "{FE2986C0-FCC3-46A4-8C6D-555C76F838AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +69,10 @@ Global
 		{58638493-62C1-4A4E-B060-362C83B4F98B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58638493-62C1-4A4E-B060-362C83B4F98B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58638493-62C1-4A4E-B060-362C83B4F98B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE2986C0-FCC3-46A4-8C6D-555C76F838AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE2986C0-FCC3-46A4-8C6D-555C76F838AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE2986C0-FCC3-46A4-8C6D-555C76F838AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE2986C0-FCC3-46A4-8C6D-555C76F838AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,6 +87,7 @@ Global
 		{4C018FC4-2050-4634-B550-662DC081E644} = {B1985547-B44C-41B8-B19D-82012210E3C2}
 		{096A8C2F-8B65-4117-8587-941EF65FAF42} = {CE147F13-2AB8-4F8B-BB76-912D608A94DD}
 		{58638493-62C1-4A4E-B060-362C83B4F98B} = {B1985547-B44C-41B8-B19D-82012210E3C2}
+		{FE2986C0-FCC3-46A4-8C6D-555C76F838AC} = {B1985547-B44C-41B8-B19D-82012210E3C2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {36E22B7D-5D2D-47F5-AB4B-5559B4249AC3}
