@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using UsedCar.Backend.Presentations.Functions.Core.Authorizations;
+using UsedCar.Backend.Presentations.Functions.Core.Errors.ErrorCodes;
 using UsedCar.Backend.Presentations.Functions.Users.Models;
 using UsedCar.Backend.UseCases.Exceptions;
 using UsedCar.Backend.UseCases.Users;
@@ -44,6 +45,7 @@ namespace UsedCar.Backend.Presentations.Functions.Users
             }
             catch (InvalidOperationException)
             {
+                await response.WriteAsJsonAsync(UsersErrorCodeFactory.BadRequest.Create());
                 response.StatusCode = HttpStatusCode.BadRequest;
                 return response;
             }
@@ -53,6 +55,7 @@ namespace UsedCar.Backend.Presentations.Functions.Users
                 var validateResult = await req.GetRequestBodyAsync<UserUpdateRequest>();
                 if (validateResult.IsValid is false)
                 {
+                    await response.WriteAsJsonAsync(UsersErrorCodeFactory.BadRequest.Create());
                     response.StatusCode = HttpStatusCode.BadRequest;
                     return response;
                 }
@@ -66,6 +69,7 @@ namespace UsedCar.Backend.Presentations.Functions.Users
             }
             catch (IdaasNotFoundException)
             {
+                await response.WriteAsJsonAsync(UsersErrorCodeFactory.NotFound.Create());
                 response.StatusCode = HttpStatusCode.NotFound;
                 return response;
             }

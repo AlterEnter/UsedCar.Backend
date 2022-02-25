@@ -5,6 +5,7 @@ using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using UsedCar.Backend.Presentations.Functions.Core.Authorizations;
+using UsedCar.Backend.Presentations.Functions.Core.Errors.ErrorCodes;
 using UsedCar.Backend.UseCases.Exceptions;
 using UsedCar.Backend.UseCases.Users;
 using UsedCar.Backend.UseCases.Users.Models;
@@ -30,6 +31,7 @@ namespace UsedCar.Backend.Presentations.Functions.Users
 
             if (claimsPrincipal == null)
             {
+                await response.WriteAsJsonAsync(UsersErrorCodeFactory.Unauthorized.Create());
                 response.StatusCode = HttpStatusCode.Unauthorized;
                 return response;
             }
@@ -39,6 +41,7 @@ namespace UsedCar.Backend.Presentations.Functions.Users
             }
             catch (InvalidOperationException)
             {
+                await response.WriteAsJsonAsync(UsersErrorCodeFactory.BadRequest.Create());
                 response.StatusCode = HttpStatusCode.BadRequest;
                 return response;
             }

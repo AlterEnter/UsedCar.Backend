@@ -29,14 +29,14 @@ namespace UsedCar.Backend.UseCases.Users
 
             if (idaasInfo is null)
             {
-                throw new UserForbiddenException();
+                throw new UserForbiddenException(UserForbiddenException.ForbiddenVariation.NoIdaasInfo);
             }
 
             var user = _userRepository.FindAsync(idaasInfo.IdaasId).Result;
 
             if (user is null)
             {
-                throw new UserForbiddenException();
+                throw new UserForbiddenException(UserForbiddenException.ForbiddenVariation.NoUserInfo);
             }
 
             await _idaasManagement.UserDeleteAsync(idaasId);

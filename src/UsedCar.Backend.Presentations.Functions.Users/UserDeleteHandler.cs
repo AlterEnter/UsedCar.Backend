@@ -5,6 +5,7 @@ using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using UsedCar.Backend.Presentations.Functions.Core.Authorizations;
+using UsedCar.Backend.Presentations.Functions.Core.Errors.ErrorCodes;
 using UsedCar.Backend.UseCases.Exceptions;
 using UsedCar.Backend.UseCases.Users;
 
@@ -29,6 +30,7 @@ namespace UsedCar.Backend.Presentations.Functions.Users
 
             if (claimsPrincipal == null)
             {
+                await response.WriteAsJsonAsync(UsersErrorCodeFactory.Unauthorized.Create());
                 response.StatusCode = HttpStatusCode.Unauthorized;
                 return response;
             }
@@ -38,6 +40,7 @@ namespace UsedCar.Backend.Presentations.Functions.Users
             }
             catch (InvalidOperationException)
             {
+                await response.WriteAsJsonAsync(UsersErrorCodeFactory.BadRequest.Create());
                 response.StatusCode = HttpStatusCode.BadRequest;
                 return response;
             }
@@ -45,23 +48,35 @@ namespace UsedCar.Backend.Presentations.Functions.Users
             try
             {
                 await _userDeleteUseCase.ExecuteAsync(iDassId);
-
             }
             catch (DbException)
             {
+                await response.WriteAsJsonAsync(UsersErrorCodeFactory.DdError.Create());
                 response.StatusCode = HttpStatusCode.ServiceUnavailable;
             }
             catch (IdaasErrorException)
             {
+                await response.WriteAsJsonAsync(UsersErrorCodeFactory.IdaasError.Create());
                 response.StatusCode = HttpStatusCode.InternalServerError;
             }
-            catch (UserForbiddenException)
+            catch (UserForbiddenException e)
             {
-                response.StatusCode =HttpStatusCode.Forbidden;
+                switch (e.Variation)
+                {
+                    case UserForbiddenException.ForbiddenVariation.NoIdaasInfo:
+                        await response.WriteAsJsonAsync(UsersErrorCodeFactory.Forbidden.CreateNoIdaasInfo());
+                        response.StatusCode = HttpStatusCode.Forbidden;
+                        return response;
+                    case UserForbiddenException.ForbiddenVariation.NoUserInfo:
+                        await response.WriteAsJsonAsync(UsersErrorCodeFactory.Forbidden.CreateNoUserInfo());
+                        response.StatusCode = HttpStatusCode.Forbidden;
+                        return response;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(e.Variation), e.Variation, "ïsê≥Ç»ílÇ≈Ç∑ÅB");
+                }
+
             }
-
             return response;
-
         }
     }
 }
