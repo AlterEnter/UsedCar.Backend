@@ -10,6 +10,7 @@ using UsedCar.Backend.Infrastructures.EntityFrameworkCore.Users;
 using UsedCar.Backend.Infrastructures.Idaas;
 using UsedCar.Backend.Presentations.Functions.Core.Authorizations;
 using UsedCar.Backend.Presentations.Functions.Core.Errors;
+using UsedCar.Backend.Presentations.Functions.Users.Models;
 using UsedCar.Backend.UseCases.Users;
 
 namespace UsedCar.Backend.Presentations.Functions.Users
@@ -32,6 +33,8 @@ namespace UsedCar.Backend.Presentations.Functions.Users
                 {
                     ServiceProvider provider = s.BuildServiceProvider();
                     var configuration = provider.GetRequiredService<IConfiguration>();
+
+                    s.AddAutoMapper(typeof(AutoMapperProfile));
 
                     s.AddTransient<IUserCreateUseCase, UserCreateUseCase>();
                     s.AddTransient<IUserReadUseCase, UserReadUseCase>();
