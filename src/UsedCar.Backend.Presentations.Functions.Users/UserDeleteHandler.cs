@@ -5,6 +5,7 @@ using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using UsedCar.Backend.Presentations.Functions.Core.Authorizations;
+using UsedCar.Backend.UseCases.Exceptions;
 using UsedCar.Backend.UseCases.Users;
 
 namespace UsedCar.Backend.Presentations.Functions.Users
@@ -41,8 +42,22 @@ namespace UsedCar.Backend.Presentations.Functions.Users
                 return response;
             }
 
-            await _userDeleteUseCase.ExecuteAsync(iDassId);
+            try
+            {
+                await _userDeleteUseCase.ExecuteAsync(iDassId);
+
+            }
+            catch (DbException)
+            {
+                response.StatusCode = HttpStatusCode.InternalServerError;
+            }
+            catch (IdaasErrorException)
+            {
+                response.StatusCode = HttpStatusCode.InternalServerError;
+            }
+
             return response;
+
         }
     }
 }
