@@ -57,7 +57,6 @@ namespace UsedCar.Backend.Presentations.Functions.Users
             }
             catch (DuplicatedUserException)
             {
-                response.StatusCode = HttpStatusCode.BadRequest;
                 return response;
             }
         }
