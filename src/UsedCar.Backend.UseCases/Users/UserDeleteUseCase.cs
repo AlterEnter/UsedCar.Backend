@@ -44,8 +44,8 @@ namespace UsedCar.Backend.UseCases.Users
             try
             {
                 using var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);
-                await _idaasRepository.DeleteAsync(idaasInfo);
                 await _userRepository.DeleteAsync(user.UserId);
+                await _idaasRepository.DeleteAsync(idaasInfo);
                 transaction.Complete();
             }
             catch (Exception e)

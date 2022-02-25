@@ -49,11 +49,15 @@ namespace UsedCar.Backend.Presentations.Functions.Users
             }
             catch (DbException)
             {
-                response.StatusCode = HttpStatusCode.InternalServerError;
+                response.StatusCode = HttpStatusCode.ServiceUnavailable;
             }
             catch (IdaasErrorException)
             {
                 response.StatusCode = HttpStatusCode.InternalServerError;
+            }
+            catch (UserForbiddenException)
+            {
+                response.StatusCode =HttpStatusCode.Forbidden;
             }
 
             return response;
