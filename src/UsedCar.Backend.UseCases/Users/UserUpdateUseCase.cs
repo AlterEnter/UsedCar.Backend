@@ -1,7 +1,9 @@
 ﻿using System.Transactions;
+using Microsoft.Extensions.Logging;
 using UsedCar.Backend.Domains.Users;
 using UsedCar.Backend.Domains.Users.AggregateRoots;
 using UsedCar.Backend.Domains.Users.ValueObjects;
+using UsedCar.Backend.LoggerExtensions;
 using UsedCar.Backend.UseCases.Exceptions;
 using UsedCar.Backend.UseCases.Users.Models;
 
@@ -15,14 +17,18 @@ namespace UsedCar.Backend.UseCases.Users
 
         private readonly IIdaasManagement _idaasManagement;
 
+        private readonly ILogger<UserUpdateUseCase> _logger;
+
         public UserUpdateUseCase(
             IIdaasRepository idaasRepository, 
             IUserRepository userRepository, 
-            IIdaasManagement idaasManagement)
+            IIdaasManagement idaasManagement, 
+            ILogger<UserUpdateUseCase> logger)
         {
             _idaasRepository = idaasRepository;
             _userRepository = userRepository;
             _idaasManagement = idaasManagement;
+            _logger = logger;
         }
 
         public async Task ExecuteAsync(UserUpdateRequest userUpdateRequest)
@@ -42,8 +48,15 @@ namespace UsedCar.Backend.UseCases.Users
 
             if (userUpdateRequest.MailAddress != idaasInfo.MailAddress.Value || userUpdateRequest.DisplayName != idaasInfo.DisplayName.Value)
             {
-
-                await _idaasManagement.UserUpdateAsync(idaasInfoUpdate);
+                try
+                {
+                    await _idaasManagement.UserUpdateAsync(idaasInfoUpdate);
+                }
+                catch (Exception e)
+                {
+                    _logger.IdaasUpdateFailed(e.Message, e);
+                    throw new IdaasErrorException(e.Message, e);
+                }
             }
 
             using var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);

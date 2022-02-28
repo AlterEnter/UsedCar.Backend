@@ -3,7 +3,6 @@
     public class UsersErrorCodeFactory
     {
         private const string ErrorCodePrefix = "Users";
-        private const string ForbiddenErrorCodeMid = "Forbidden";
         private const string NoIdaasInfoErrorCodePostfix = "NoIdaasInfo";
         private const string NoUserInfoErrorCodePostfix = "NoUserInfo";
 

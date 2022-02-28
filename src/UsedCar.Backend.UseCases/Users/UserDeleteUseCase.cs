@@ -39,8 +39,16 @@ namespace UsedCar.Backend.UseCases.Users
                 throw new UserForbiddenException(UserForbiddenException.ForbiddenVariation.NoUserInfo);
             }
 
-            await _idaasManagement.UserDeleteAsync(idaasId);
-
+            try
+            {
+                await _idaasManagement.UserDeleteAsync(idaasId);
+            }
+            catch (Exception e)
+            {
+                _logger.IdaasDeleteFailed(e.Message, e);
+                throw new IdaasErrorException(e.Message, e);
+            }
+            
             try
             {
                 using var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);

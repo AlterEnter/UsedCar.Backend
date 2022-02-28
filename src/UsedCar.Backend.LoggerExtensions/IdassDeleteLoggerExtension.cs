@@ -12,7 +12,7 @@ namespace UsedCar.Backend.LoggerExtensions
             s_idaasDeleteFailed = LoggerMessage.Define<string>(
                 LogLevel.Error,
                 eventId,
-                "Idass情報の削除に失敗しました。{Message}"
+                "Idaas情報の削除に失敗しました。{Message}"
                 );
         }
 

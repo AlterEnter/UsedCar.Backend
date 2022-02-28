@@ -65,9 +65,17 @@ namespace UsedCar.Backend.Infrastructures.Idaas
             };
 
             // ユーザアカウントの更新
-            var result = await _client.Users[idaasInfo.IdaasId.Value]
-                .Request()
-                .UpdateAsync(user);
+            try
+            {
+                var result = await _client.Users[idaasInfo.IdaasId.Value]
+                    .Request()
+                    .UpdateAsync(user);
+            }
+            catch (Exception e)
+            {
+                _logger.IdaasDeleteFailed(e.Message, e);
+                throw new IdaasErrorException(e.Message, e);
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Moq;
 using System;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using UsedCar.Backend.Domains.Users;
 using UsedCar.Backend.Domains.Users.AggregateRoots;
 using UsedCar.Backend.Domains.Users.ValueObjects;
@@ -34,7 +35,9 @@ namespace UsedCar.Backend.UseCase.Users
 
             var idaasManagement = new Mock<IIdaasManagement>();
 
-            UserUpdateUseCase sut = new(idaasRepository.Object, userRepository.Object, idaasManagement.Object);
+            var logger = new Mock<ILogger<UserUpdateUseCase>>();
+
+            UserUpdateUseCase sut = new(idaasRepository.Object, userRepository.Object, idaasManagement.Object, logger.Object);
 
             var userId = Guid.NewGuid();
 
@@ -105,7 +108,9 @@ namespace UsedCar.Backend.UseCase.Users
 
             var idaasManagement = new Mock<IIdaasManagement>();
 
-            UserUpdateUseCase sut = new(idaasRepository.Object, userRepository.Object, idaasManagement.Object);
+            var logger = new Mock<ILogger<UserUpdateUseCase>>();
+
+            UserUpdateUseCase sut = new(idaasRepository.Object, userRepository.Object, idaasManagement.Object, logger.Object);
 
             var userId = Guid.NewGuid();
 
@@ -193,7 +198,9 @@ namespace UsedCar.Backend.UseCase.Users
 
             var idaasManagement = new Mock<IIdaasManagement>();
 
-            UserUpdateUseCase sut = new(idaasRepository.Object, userRepository.Object, idaasManagement.Object);
+            var logger = new Mock<ILogger<UserUpdateUseCase>>();
+
+            UserUpdateUseCase sut = new(idaasRepository.Object, userRepository.Object, idaasManagement.Object, logger.Object);
 
             var userUpdateRequest = new UserUpdateRequest
             {
@@ -263,7 +270,9 @@ namespace UsedCar.Backend.UseCase.Users
 
             var idaasManagement = new Mock<IIdaasManagement>();
 
-            UserUpdateUseCase sut = new(idaasRepository.Object, userRepository.Object, idaasManagement.Object);
+            var logger = new Mock<ILogger<UserUpdateUseCase>>();
+
+            UserUpdateUseCase sut = new(idaasRepository.Object, userRepository.Object, idaasManagement.Object, logger.Object);
 
             var userUpdateRequest = new UserUpdateRequest
             {
@@ -304,7 +313,9 @@ namespace UsedCar.Backend.UseCase.Users
 
             var idaasManagement = new Mock<IIdaasManagement>();
 
-            UserUpdateUseCase sut = new(idaasRepository.Object, userRepository.Object, idaasManagement.Object);
+            var logger = new Mock<ILogger<UserUpdateUseCase>>();
+
+            UserUpdateUseCase sut = new(idaasRepository.Object, userRepository.Object, idaasManagement.Object, logger.Object);
 
             var idaasId = Guid.NewGuid().ToString();
 

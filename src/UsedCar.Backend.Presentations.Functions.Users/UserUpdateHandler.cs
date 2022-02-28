@@ -67,6 +67,12 @@ namespace UsedCar.Backend.Presentations.Functions.Users
                 await _userUpdateUseCase.ExecuteAsync(userUpdateRequestUseCase);
                 return response;
             }
+            catch (IdaasErrorException)
+            {
+                await response.WriteAsJsonAsync(UsersErrorCodeFactory.IdaasError.Create());
+                response.StatusCode = HttpStatusCode.InternalServerError;
+                return response;
+            }
             catch (IdaasNotFoundException)
             {
                 await response.WriteAsJsonAsync(UsersErrorCodeFactory.NotFound.Create());
