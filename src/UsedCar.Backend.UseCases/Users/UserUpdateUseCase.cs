@@ -13,12 +13,16 @@ namespace UsedCar.Backend.UseCases.Users
 
         private readonly IUserRepository _userRepository;
 
+        private readonly IIdaasManagement _idaasManagement;
+
         public UserUpdateUseCase(
             IIdaasRepository idaasRepository, 
-            IUserRepository userRepository)
+            IUserRepository userRepository, 
+            IIdaasManagement idaasManagement)
         {
             _idaasRepository = idaasRepository;
             _userRepository = userRepository;
+            _idaasManagement = idaasManagement;
         }
 
         public async Task ExecuteAsync(UserUpdateRequest userUpdateRequest)
@@ -34,7 +38,13 @@ namespace UsedCar.Backend.UseCases.Users
                 new IdaasId(userUpdateRequest.IdaasId),
                 new DisplayName(userUpdateRequest.DisplayName),
                 new MailAddress(userUpdateRequest.MailAddress)
-                );
+            );
+
+            if (userUpdateRequest.MailAddress != idaasInfo.MailAddress.Value || userUpdateRequest.DisplayName != idaasInfo.DisplayName.Value)
+            {
+
+                await _idaasManagement.UserUpdateAsync(idaasInfoUpdate);
+            }
 
             using var transaction = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);
 
